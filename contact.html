@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Exclusive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body data-page="contact">
+
+  <!-- ============ TOP BAR ============ -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <p class="top-bar-text">Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%! <a href="index.html">ShopNow</a></p>
+      <div class="lang-selector">
+        <select aria-label="Language">
+          <option>English</option>
+          <option>हिन्दी</option>
+          <option>اردو</option>
+          <option>Bangla</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">Exclusive</a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="contact.html" class="active">Contact</a>
+        <a href="about.html">About</a>
+        <a href="signup.html">Sign Up</a>
+      </nav>
+      <div class="header-actions">
+        <form class="search-box" onsubmit="return false;">
+          <input type="text" placeholder="What are you looking for?">
+          <button type="submit" aria-label="Search"><svg class="ic"><use href="#i-search"/></svg></button>
+        </form>
+        <a href="wishlist.html" class="header-icon" aria-label="Wishlist"><svg class="ic"><use href="#i-heart"/></svg><span class="h-badge" data-badge="wish" hidden>0</span></a>
+        <a href="cart.html" class="header-icon" aria-label="Cart"><svg class="ic"><use href="#i-cart"/></svg><span class="h-badge" data-badge="cart" hidden>0</span></a>
+        <a href="login.html" class="header-icon" aria-label="Account" data-account-icon><svg class="ic"><use href="#i-user"/></svg></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ BREADCRUMB ============ -->
+  <div class="container">
+    <nav class="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span class="current">Contact</span></nav>
+  </div>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="container contact-grid">
+    <aside class="contact-card">
+      <div class="contact-block">
+        <div class="cb-head">
+          <span class="cb-ic"><svg class="ic"><use href="#i-phone"/></svg></span>
+          <h3>Call To Us</h3>
+        </div>
+        <p>We are available 24/7, 7 days a week.</p>
+        <p class="cb-line">Phone: +8801611112222</p>
+      </div>
+      <div class="contact-divider"></div>
+      <div class="contact-block">
+        <div class="cb-head">
+          <span class="cb-ic"><svg class="ic"><use href="#i-send"/></svg></span>
+          <h3>Write To US</h3>
+        </div>
+        <p>Fill out our form and we will contact you within 24 hours.</p>
+        <p class="cb-line">Emails: customer@exclusive.com</p>
+        <p class="cb-line">Emails: support@exclusive.com</p>
+      </div>
+    </aside>
+
+    <form class="contact-form" id="contactForm" novalidate>
+      <div class="cf-row">
+        <input class="input-gray" name="name" placeholder="Your Name *" required>
+        <input class="input-gray" name="email" type="email" placeholder="Your Email *" required>
+        <input class="input-gray" name="phone" placeholder="Your Phone *" required>
+      </div>
+      <textarea name="message" placeholder="Your Massage" required></textarea>
+      <div class="cf-actions">
+        <button type="submit" class="btn-send">Send Massage</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col footer-brand">
+        <h3 class="footer-logo">Exclusive</h3>
+        <h4 class="footer-heading">Subscribe</h4>
+        <p class="footer-sub">Get 10% off your first order</p>
+        <form class="subscribe-form" onsubmit="return false;">
+          <input type="email" placeholder="Enter your email">
+          <button type="submit" aria-label="Subscribe"><svg class="ic"><use href="#i-send"/></svg></button>
+        </form>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Support</h4>
+        <address class="footer-address">111 Bijoy saranj, Dhaka,<br>DH 1515, Bangladesh.</address>
+        <p class="footer-link">exclusive@gmail.com</p>
+        <p class="footer-link">+88015-88888-9999</p>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Account</h4>
+        <ul class="footer-list">
+          <li><a href="account.html">My Account</a></li>
+          <li><a href="login.html">Login / Register</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <li><a href="wishlist.html">Wishlist</a></li>
+          <li><a href="products.html">Shop</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Quick Link</h4>
+        <ul class="footer-list">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms Of Use</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-app">
+        <h4 class="footer-heading">Download App</h4>
+        <p class="app-note">Save $3 with App New User Only</p>
+        <div class="app-badges">
+          <img class="qr" src="images/qr-code.png" alt="QR Code">
+          <div class="store-badges">
+            <a href="#"><img src="images/google-play.svg" alt="Get it on Google Play"></a>
+            <a href="#"><img src="images/app-store.svg" alt="Download on the App Store"></a>
+          </div>
+        </div>
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook"><svg class="ic"><use href="#i-facebook"/></svg></a>
+          <a href="#" aria-label="Twitter"><svg class="ic"><use href="#i-twitter"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg class="ic"><use href="#i-instagram"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg class="ic"><use href="#i-linkedin"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© Copyright Rimel 2022. All right reserved</p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/pages.js"></script>
+</body>
+</html>

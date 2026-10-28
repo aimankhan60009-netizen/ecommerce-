@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exclusive — E-Commerce Home Page</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <!-- ============ SVG SPRITE (icons) ============ -->
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <defs>
+      <linearGradient id="halfGrad" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="50%" stop-color="#FFAD33"/>
+        <stop offset="50%" stop-color="#C4C4C4"/>
+      </linearGradient>
+      <symbol id="i-heart" viewBox="0 0 24 24">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="i-eye" viewBox="0 0 24 24">
+        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      </symbol>
+      <symbol id="i-cart" viewBox="0 0 24 24">
+        <circle cx="9" cy="21" r="1" fill="currentColor" stroke="none"/>
+        <circle cx="20" cy="21" r="1" fill="currentColor" stroke="none"/>
+        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="i-search" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <line x1="20.5" y1="20.5" x2="16.2" y2="16.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="i-chevron-down" viewBox="0 0 24 24">
+        <polyline points="6 9 12 15 18 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="i-chevron-right" viewBox="0 0 24 24">
+        <polyline points="9 18 15 12 9 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="i-arrow-right" viewBox="0 0 24 24">
+        <line x1="4" y1="12" x2="20" y2="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <polyline points="13 5 20 12 13 19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="i-arrow-left" viewBox="0 0 24 24">
+        <line x1="20" y1="12" x2="4" y2="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <polyline points="11 5 4 12 11 19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="i-arrow-up" viewBox="0 0 24 24">
+        <line x1="12" y1="20" x2="12" y2="5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <polyline points="5 12 12 5 19 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="i-star" viewBox="0 0 24 24">
+        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+      </symbol>
+      <symbol id="i-send" viewBox="0 0 24 24">
+        <line x1="22" y1="2" x2="11" y2="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <polygon points="22 2 15 22 11 13 2 9 22 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="i-apple" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.08zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+      </symbol>
+      <symbol id="i-truck" viewBox="0 0 24 24">
+        <rect x="1" y="4" width="14" height="12" rx="1" fill="none" stroke="currentColor" stroke-width="1.7"/>
+        <polygon points="15 9 19.5 9 23 12.5 23 16 15 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+        <circle cx="6" cy="18.5" r="2" fill="none" stroke="currentColor" stroke-width="1.7"/>
+        <circle cx="18" cy="18.5" r="2" fill="none" stroke="currentColor" stroke-width="1.7"/>
+      </symbol>
+      <symbol id="i-headset" viewBox="0 0 24 24">
+        <path d="M3 17v-5a9 9 0 0 1 18 0v5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+        <path d="M21 16.5a2 2 0 0 1-2 2h-1a1.5 1.5 0 0 1-1.5-1.5v-3a1.5 1.5 0 0 1 1.5-1.5H21zM3 16.5a2 2 0 0 0 2 2h1a1.5 1.5 0 0 0 1.5-1.5v-3A1.5 1.5 0 0 0 6 12.5H3z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24">
+        <path d="M12 22s8-3.6 8-9.5V5.5L12 2.5 4 5.5v7C4 18.4 12 22 12 22z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+        <polyline points="9 11.5 11.2 13.7 15.2 9.7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24">
+        <rect x="6" y="2.5" width="12" height="19" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <line x1="10.5" y1="18.5" x2="13.5" y2="18.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        <line x1="10" y1="5" x2="14" y2="5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="i-monitor" viewBox="0 0 24 24">
+        <rect x="2.5" y="4" width="19" height="13" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <line x1="9" y1="20.5" x2="15" y2="20.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        <line x1="12" y1="17" x2="12" y2="20.5" stroke="currentColor" stroke-width="1.6"/>
+      </symbol>
+      <symbol id="i-smartwatch" viewBox="0 0 24 24">
+        <rect x="7.5" y="1.5" width="9" height="4.5" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <rect x="7.5" y="18" width="9" height="4.5" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <rect x="6.5" y="6" width="11" height="12" rx="3.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <polyline points="10.5 10.5 12 9.5 12 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="13.6" y1="14" x2="13.6" y2="14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="i-camera" viewBox="0 0 24 24">
+        <path d="M22.5 18.5a2 2 0 0 1-2 2h-17a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2H7l2-3h6l2 3h3.5a2 2 0 0 1 2 2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+        <circle cx="12" cy="13.5" r="3.6" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      </symbol>
+      <symbol id="i-headphones" viewBox="0 0 24 24">
+        <path d="M3.5 17.5v-6a8.5 8.5 0 0 1 17 0v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M20.5 16.5a2 2 0 0 1-2 2h-1a1.5 1.5 0 0 1-1.5-1.5v-3a1.5 1.5 0 0 1 1.5-1.5h3zM3.5 16.5a2 2 0 0 0 2 2h1a1.5 1.5 0 0 0 1.5-1.5v-3A1.5 1.5 0 0 0 6.5 12.5h-3z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="i-gaming" viewBox="0 0 24 24">
+        <rect x="2.5" y="7.5" width="19" height="9.5" rx="4.75" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <line x1="8" y1="10.2" x2="8" y2="14.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        <line x1="6" y1="12.2" x2="10" y2="12.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        <circle cx="15.2" cy="11" r="1" fill="currentColor"/>
+        <circle cx="17.6" cy="13.4" r="1" fill="currentColor"/>
+      </symbol>
+      <symbol id="i-facebook" viewBox="0 0 24 24">
+        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="i-twitter" viewBox="0 0 24 24">
+        <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24">
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+        <rect x="2" y="9" width="4" height="12" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <circle cx="4" cy="4" r="2" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- ============ TOP BAR ============ -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <p class="top-bar-text">Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%! <a href="products.html">ShopNow</a></p>
+      <div class="lang-selector">
+        <select aria-label="Language">
+          <option>English</option>
+          <option>हिन्दी</option>
+          <option>اردو</option>
+          <option>Bangla</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">Exclusive</a>
+      <nav class="main-nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About</a>
+        <a href="signup.html">Sign Up</a>
+      </nav>
+      <div class="header-actions">
+        <form class="search-box" onsubmit="return false;">
+          <input type="text" placeholder="What are you looking for?">
+          <button type="submit" aria-label="Search"><svg class="ic"><use href="#i-search"/></svg></button>
+        </form>
+        <a href="wishlist.html" class="header-icon" aria-label="Wishlist"><svg class="ic"><use href="#i-heart"/></svg><span class="h-badge" data-badge="wish" hidden>0</span></a>
+        <a href="cart.html" class="header-icon" aria-label="Cart"><svg class="ic"><use href="#i-cart"/></svg><span class="h-badge" data-badge="cart" hidden>0</span></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <aside class="hero-sidebar">
+        <ul>
+          <li><a href="products.html?cat=Fashion">Woman's Fashion</a><svg class="ic"><use href="#i-chevron-right"/></svg></li>
+          <li><a href="products.html?cat=Fashion">Men's Fashion</a><svg class="ic"><use href="#i-chevron-right"/></svg></li>
+          <li><a href="products.html?cat=Electronics">Electronics</a></li>
+          <li><a href="products.html?cat=Home &amp; Living">Home &amp; Lifestyle</a></li>
+          <li><a href="products.html?cat=Beauty &amp; Health">Medicine</a></li>
+          <li><a href="products.html?cat=Sports &amp; Outdoor">Sports &amp; Outdoor</a></li>
+          <li><a href="products.html?cat=Kids &amp; Toys">Baby's &amp; Toys</a></li>
+          <li><a href="products.html?cat=Groceries &amp; Pets">Groceries &amp; Pets</a></li>
+          <li><a href="products.html?cat=Beauty &amp; Health">Health &amp; Beauty</a></li>
+        </ul>
+      </aside>
+
+      <div class="hero-banner">
+        <div class="hero-track" id="heroTrack">
+          <!-- Slide 1 -->
+          <div class="hero-slide">
+            <div class="hero-content">
+              <div class="hero-brand"><svg class="ic"><use href="#i-apple"/></svg><span>iPad Series</span></div>
+              <h1>Up to 10%<br>off Voucher</h1>
+              <a href="products.html" class="hero-cta">Shop Now <svg class="ic"><use href="#i-arrow-right"/></svg></a>
+            </div>
+            <img class="hero-img" src="images/hero-iphone.jpg" alt="iPad Series">
+          </div>
+          <!-- Slide 2 -->
+          <div class="hero-slide">
+            <div class="hero-content">
+              <div class="hero-brand"><svg class="ic"><use href="#i-apple"/></svg><span>MacBook Air</span></div>
+              <h1>Up to 10%<br>off Voucher</h1>
+              <a href="products.html" class="hero-cta">Shop Now <svg class="ic"><use href="#i-arrow-right"/></svg></a>
+            </div>
+            <img class="hero-img" src="images/hero-iphone.jpg" alt="MacBook Air">
+          </div>
+          <!-- Slide 3 (default active — same as design) -->
+          <div class="hero-slide">
+            <div class="hero-content">
+              <div class="hero-brand"><svg class="ic"><use href="#i-apple"/></svg><span>iPhone 14 Series</span></div>
+              <h1>Up to 10%<br>off Voucher</h1>
+              <a href="products.html" class="hero-cta">Shop Now <svg class="ic"><use href="#i-arrow-right"/></svg></a>
+            </div>
+            <img class="hero-img" src="images/hero-iphone.jpg" alt="iPhone 14 Series">
+          </div>
+          <!-- Slide 4 -->
+          <div class="hero-slide">
+            <div class="hero-content">
+              <div class="hero-brand"><svg class="ic"><use href="#i-apple"/></svg><span>Vision Pro</span></div>
+              <h1>Up to 10%<br>off Voucher</h1>
+              <a href="products.html" class="hero-cta">Shop Now <svg class="ic"><use href="#i-arrow-right"/></svg></a>
+            </div>
+            <img class="hero-img" src="images/hero-iphone.jpg" alt="Vision Pro">
+          </div>
+          <!-- Slide 5 -->
+          <div class="hero-slide">
+            <div class="hero-content">
+              <div class="hero-brand"><svg class="ic"><use href="#i-apple"/></svg><span>Watch Series</span></div>
+              <h1>Up to 10%<br>off Voucher</h1>
+              <a href="products.html" class="hero-cta">Shop Now <svg class="ic"><use href="#i-arrow-right"/></svg></a>
+            </div>
+            <img class="hero-img" src="images/hero-iphone.jpg" alt="Watch Series">
+          </div>
+        </div>
+        <div class="hero-dots" id="heroDots"></div>
+      </div>
+    </div>
+  </section>
+  <!-- ============ FLASH SALES ============ -->
+  <section class="section flash-sales">
+    <div class="container">
+      <div class="section-label"><span class="label-bar"></span><span>Today's</span></div>
+      <div class="section-title-row">
+        <h2 class="section-title">Flash Sales</h2>
+        <div class="countdown" id="flashCountdown">
+          <div class="cd-box"><span class="cd-label">Days</span><span class="cd-num" id="cdDays">03</span></div>
+          <span class="cd-sep">:</span>
+          <div class="cd-box"><span class="cd-label">Hours</span><span class="cd-num" id="cdHours">23</span></div>
+          <span class="cd-sep">:</span>
+          <div class="cd-box"><span class="cd-label">Minutes</span><span class="cd-num" id="cdMinutes">19</span></div>
+          <span class="cd-sep">:</span>
+          <div class="cd-box"><span class="cd-label">Seconds</span><span class="cd-num" id="cdSeconds">56</span></div>
+        </div>
+        <div class="carousel-nav">
+          <button class="nav-btn" id="flashPrev" aria-label="Previous"><svg class="ic"><use href="#i-arrow-left"/></svg></button>
+          <button class="nav-btn" id="flashNext" aria-label="Next"><svg class="ic"><use href="#i-arrow-right"/></svg></button>
+        </div>
+      </div>
+
+      <div class="flash-carousel">
+        <div class="flash-track" id="flashTrack">
+
+          <article class="product-card">
+            <div class="card-media">
+              <span class="badge">-40%</span>
+              <div class="card-actions">
+                <button class="icon-btn wish-btn" aria-label="Wishlist"><svg class="ic"><use href="#i-heart"/></svg></button>
+                <button class="icon-btn" aria-label="Quick view"><svg class="ic"><use href="#i-eye"/></svg></button>
+              </div>
+              <img src="images/gamepad-red.jpg" alt="HAVIT HV-G92 Gamepad">
+              <button class="add-to-cart">Add To Cart</button>
+            </div>
+            <h3 class="card-title">HAVIT HV-G92 Gamepad</h3>
+            <p class="price"><span class="price-new">$120</span><span class="price-old">$160</span></p>
+            <div class="rating">
+              <svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg>
+              <span class="rating-count">(88)</span>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="card-media">
+              <span class="badge">-35%</span>
+              <div class="card-actions">
+                <button class="icon-btn wish-btn" aria-label="Wishlist"><svg class="ic"><use href="#i-heart"/></svg></button>
+                <button class="icon-btn" aria-label="Quick view"><svg class="ic"><use href="#i-eye"/></svg></button>
+              </div>
+              <img src="images/keyboard.jpg" alt="AK-900 Wired Keyboard">
+              <button class="add-to-cart">Add To Cart</button>
+            </div>
+            <h3 class="card-title">AK-900 Wired Keyboard</h3>
+            <p class="price"><span class="price-new">$960</span><span class="price-old">$1160</span></p>
+            <div class="rating">
+              <svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star half"><use href="#i-star"/></svg>
+              <span class="rating-count">(75)</span>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="card-media">
+              <span class="badge">-30%</span>
+              <div class="card-actions">
+                <button class="icon-btn wish-btn" aria-label="Wishlist"><svg class="ic"><use href="#i-heart"/></svg></button>
+                <button class="icon-btn" aria-label="Quick view"><svg class="ic"><use href="#i-eye"/></svg></button>
+              </div>
+              <img src="images/monitor.jpg" alt="IPS LCD Gaming Monitor">
+              <button class="add-to-cart">Add To Cart</button>
+            </div>
+            <h3 class="card-title">IPS LCD Gaming Monitor</h3>
+            <p class="price"><span class="price-new">$370</span><span class="price-old">$400</span></p>
+            <div class="rating">
+              <svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg>
+              <span class="rating-count">(99)</span>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="card-media">
+              <span class="badge">-25%</span>
+              <div class="card-actions">
+                <button class="icon-btn wish-btn" aria-label="Wishlist"><svg class="ic"><use href="#i-heart"/></svg></button>
+                <button class="icon-btn" aria-label="Quick view"><svg class="ic"><use href="#i-eye"/></svg></button>
+              </div>
+              <img src="images/chair.jpg" alt="S-Series Comfort Chair">
+              <button class="add-to-cart">Add To Cart</button>
+            </div>
+            <h3 class="card-title">S-Series Comfort Chair</h3>
+            <p class="price"><span class="price-new">$375</span><span class="price-old">$400</span></p>
+            <div class="rating">
+              <svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star half"><use href="#i-star"/></svg>
+              <span class="rating-count">(99)</span>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="card-media">
+              <span class="badge">-25%</span>
+              <div class="card-actions">
+                <button class="icon-btn wish-btn" aria-label="Wishlist"><svg class="ic"><use href="#i-heart"/></svg></button>
+                <button class="icon-btn" aria-label="Quick view"><svg class="ic"><use href="#i-eye"/></svg></button>
+              </div>
+              <img src="images/chair.jpg" alt="S-Series Comfort Chair">
+              <button class="add-to-cart">Add To Cart</button>
+            </div>
+            <h3 class="card-title">S-Series Comfort Chair</h3>
+            <p class="price"><span class="price-new">$375</span><span class="price-old">$400</span></p>
+            <div class="rating">
+              <svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star half"><use href="#i-star"/></svg>
+              <span class="rating-count">(99)</span>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="card-media">
+              <span class="badge">-40%</span>
+              <div class="card-actions">
+                <button class="icon-btn wish-btn" aria-label="Wishlist"><svg class="ic"><use href="#i-heart"/></svg></button>
+                <button class="icon-btn" aria-label="Quick view"><svg class="ic"><use href="#i-eye"/></svg></button>
+              </div>
+              <img src="images/gamepad-red.jpg" alt="HAVIT HV-G92 Gamepad">
+              <button class="add-to-cart">Add To Cart</button>
+            </div>
+            <h3 class="card-title">HAVIT HV-G92 Gamepad</h3>
+            <p class="price"><span class="price-new">$120</span><span class="price-old">$160</span></p>
+            <div class="rating">
+              <svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg>
+              <span class="rating-count">(88)</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <div class="center-btn">
+        <a href="products.html" class="btn-red">View All Products</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BEST SELLING PRODUCTS ============ -->
+  <section class="section best-selling">
+    <div class="container">
+      <div class="section-label"><span class="label-bar"></span><span>This Month</span></div>
+      <div class="section-title-row">
+        <h2 class="section-title">Best Selling Products</h2>
+        <a href="products.html" class="btn-red">View All</a>
+      </div>
+
+      <div class="category-grid">
+        <a href="products.html?cat=Electronics" class="category-card">
+          <svg class="cat-icon"><use href="#i-phone"/></svg>
+          <span>Phones</span>
+        </a>
+        <a href="products.html" class="category-card">
+          <svg class="cat-icon"><use href="#i-monitor"/></svg>
+          <span>Computers</span>
+        </a>
+        <a href="products.html" class="category-card">
+          <svg class="cat-icon"><use href="#i-smartwatch"/></svg>
+          <span>SmartWatch</span>
+        </a>
+        <a href="products.html?cat=Electronics" class="category-card active">
+          <svg class="cat-icon"><use href="#i-camera"/></svg>
+          <span>Camera</span>
+        </a>
+        <a href="products.html" class="category-card">
+          <svg class="cat-icon"><use href="#i-headphones"/></svg>
+          <span>HeadPhones</span>
+        </a>
+        <a href="products.html" class="category-card">
+          <svg class="cat-icon"><use href="#i-gaming"/></svg>
+          <span>Gaming</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BROWSE BY CATEGORY ============ -->
+  <section class="section browse-category">
+    <div class="container">
+      <div class="section-label"><span class="label-bar"></span><span>Categories</span></div>
+      <div class="section-title-row">
+        <h2 class="section-title">Browse By Category</h2>
+        <div class="carousel-nav">
+          <button class="nav-btn" aria-label="Previous"><svg class="ic"><use href="#i-arrow-left"/></svg></button>
+          <button class="nav-btn" aria-label="Next"><svg class="ic"><use href="#i-arrow-right"/></svg></button>
+        </div>
+      </div>
+
+      <div class="product-grid four">
+        <article class="product-card">
+          <div class="card-media">
+            <div class="card-actions">
+              <button class="icon-btn wish-btn" aria-label="Wishlist"><svg class="ic"><use href="#i-heart"/></svg></button>
+              <button class="icon-btn" aria-label="Quick view"><svg class="ic"><use href="#i-eye"/></svg></button>
+            </div>
+            <img src="images/coat.jpg" alt="The north coat">
+            <button class="add-to-cart">Add To Cart</button>
+          </div>
+          <h3 class="card-title">The north coat</h3>
+          <p class="price"><span class="price-new">$260</span><span class="price-old">$360</span></p>
+          <div class="rating">
+            <svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg>
+            <span class="rating-count">(65)</span>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="card-media">
+            <div class="card-actions">
+              <button class="icon-btn wish-btn" aria-label="Wishlist"><svg class="ic"><use href="#i-heart"/></svg></button>
+              <button class="icon-btn" aria-label="Quick view"><svg class="ic"><use href="#i-eye"/></svg></button>
+            </div>
+            <img src="images/bag.jpg" alt="Gucci duffle bag">
+            <button class="add-to-cart">Add To Cart</button>
+          </div>
+          <h3 class="card-title">Gucci duffle bag</h3>
+          <p class="price"><span class="price-new">$960</span><span class="price-old">$1160</span></p>
+          <div class="rating">
+            <svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star half"><use href="#i-star"/></svg>
+            <span class="rating-count">(65)</span>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="card-media">
+            <div class="card-actions">
+              <button class="icon-btn wish-btn" aria-label="Wishlist"><svg class="ic"><use href="#i-heart"/></svg></button>
+              <button class="icon-btn" aria-label="Quick view"><svg class="ic"><use href="#i-eye"/></svg></button>
+            </div>
+            <img src="images/cooler.jpg" alt="RGB liquid CPU Cooler">
+            <button class="add-to-cart">Add To Cart</button>
+          </div>
+          <h3 class="card-title">RGB liquid CPU Cooler</h3>
+          <p class="price"><span class="price-new">$160</span><span class="price-old">$170</span></p>
+          <div class="rating">
+            <svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star half"><use href="#i-star"/></svg>
+            <span class="rating-count">(65)</span>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="card-media">
+            <div class="card-actions">
+              <button class="icon-btn wish-btn" aria-label="Wishlist"><svg class="ic"><use href="#i-heart"/></svg></button>
+              <button class="icon-btn" aria-label="Quick view"><svg class="ic"><use href="#i-eye"/></svg></button>
+            </div>
+            <img src="images/bookshelf.jpg" alt="Small BookSelf">
+            <button class="add-to-cart">Add To Cart</button>
+          </div>
+          <h3 class="card-title">Small BookSelf</h3>
+          <p class="price"><span class="price-new">$360</span></p>
+          <div class="rating">
+            <svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg>
+            <span class="rating-count">(65)</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MUSIC EXPERIENCE BANNER ============ -->
+  <section class="section music-section">
+    <div class="container">
+      <div class="music-banner">
+        <div class="music-content">
+          <span class="green-label">Categories</span>
+          <h2>Enhance Your<br>Music Experience</h2>
+          <div class="music-countdown" id="musicCountdown">
+            <div class="mc-circle"><b id="mcHours">23</b><span>Hours</span></div>
+            <div class="mc-circle"><b id="mcDays">05</b><span>Days</span></div>
+            <div class="mc-circle"><b id="mcMinutes">59</b><span>Minutes</span></div>
+            <div class="mc-circle"><b id="mcSeconds">35</b><span>Seconds</span></div>
+          </div>
+          <a href="products.html?cat=Electronics" class="btn-green">Buy Now!</a>
+        </div>
+        <img class="music-img" src="images/speaker-jbl.jpg" alt="JBL Speaker">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EXPLORE OUR PRODUCTS ============ -->
+  <section class="section explore-products">
+    <div class="container">
+      <div class="section-label"><span class="label-bar"></span><span>Our Products</span></div>
+      <div class="section-title-row">
+        <h2 class="section-title">Explore Our Products</h2>
+        <div class="carousel-nav">
+          <button class="nav-btn" aria-label="Previous"><svg class="ic"><use href="#i-arrow-left"/></svg></button>
+          <button class="nav-btn" aria-label="Next"><svg class="ic"><use href="#i-arrow-right"/></svg></button>
+        </div>
+      </div>
+
+      <div class="product-grid four explore-grid">
+        <article class="product-card">
+          <div class="card-media">
+            <div class="card-actions">
+              <button class="icon-btn wish-btn" aria-label="Wishlist"><svg class="ic"><use href="#i-heart"/></svg></button>
+              <button class="icon-btn" aria-label="Quick view"><svg class="ic"><use href="#i-eye"/></svg></button>
+            </div>
+            <img src="images/dog-food.jpg" alt="Breed Dry Dog Food">
+            <button class="add-to-cart">Add To Cart</button>
+          </div>
+          <h3 class="card-title">Breed Dry Dog Food</h3>
+          <div class="info-row">
+            <p class="price"><span class="price-new">$100</span></p>
+            <div class="rating">
+              <svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star empty"><use href="#i-star"/></svg><svg class="star empty"><use href="#i-star"/></svg>
+              <span class="rating-count">(35)</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="card-media">
+            <div class="card-actions">
+              <button class="icon-btn wish-btn" aria-label="Wishlist"><svg class="ic"><use href="#i-heart"/></svg></button>
+              <button class="icon-btn" aria-label="Quick view"><svg class="ic"><use href="#i-eye"/></svg></button>
+            </div>
+            <img src="images/camera.jpg" alt="CANON EOS DSLR Camera">
+            <button class="add-to-cart">Add To Cart</button>
+          </div>
+          <h3 class="card-title">CANON EOS DSLR Camera</h3>
+          <div class="info-row">
+            <p class="price"><span class="price-new">$360</span></p>
+            <div class="rating">
+              <svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star empty"><use href="#i-star"/></svg>
+              <span class="rating-count">(95)</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="card-media">
+            <div class="card-actions">
+              <button class="icon-btn wish-btn" aria-label="Wishlist"><svg class="ic"><use href="#i-heart"/></svg></button>
+              <button class="icon-btn" aria-label="Quick view"><svg class="ic"><use href="#i-eye"/></svg></button>
+            </div>
+            <img src="images/laptop.jpg" alt="ASUS FHD Gaming Laptop">
+            <button class="add-to-cart">Add To Cart</button>
+          </div>
+          <h3 class="card-title">ASUS FHD Gaming Laptop</h3>
+          <div class="info-row">
+            <p class="price"><span class="price-new">$700</span></p>
+            <div class="rating">
+              <svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg>
+              <span class="rating-count">(325)</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="card-media">
+            <div class="card-actions">
+              <button class="icon-btn wish-btn" aria-label="Wishlist"><svg class="ic"><use href="#i-heart"/></svg></button>
+              <button class="icon-btn" aria-label="Quick view"><svg class="ic"><use href="#i-eye"/></svg></button>
+            </div>
+            <img src="images/curology.jpg" alt="Curology Product Set">
+            <button class="add-to-cart">Add To Cart</button>
+          </div>
+          <h3 class="card-title">Curology Product Set</h3>
+          <div class="info-row">
+            <p class="price"><span class="price-new">$500</span></p>
+            <div class="rating">
+              <svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star empty"><use href="#i-star"/></svg>
+              <span class="rating-count">(145)</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="card-media">
+            <span class="badge green">NEW</span>
+            <div class="card-actions">
+              <button class="icon-btn wish-btn" aria-label="Wishlist"><svg class="ic"><use href="#i-heart"/></svg></button>
+              <button class="icon-btn" aria-label="Quick view"><svg class="ic"><use href="#i-eye"/></svg></button>
+            </div>
+            <img src="images/toy-car.jpg" alt="Kids Electric Car">
+            <button class="add-to-cart">Add To Cart</button>
+          </div>
+          <h3 class="card-title">Kids Electric Car</h3>
+          <div class="info-row">
+            <p class="price"><span class="price-new">$960</span></p>
+            <div class="rating">
+              <svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg>
+              <span class="rating-count">(65)</span>
+            </div>
+          </div>
+          <div class="swatches">
+            <span class="swatch active" style="--sw:#DB4444"></span>
+            <span class="swatch" style="--sw:#DB4444"></span>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="card-media">
+            <div class="card-actions">
+              <button class="icon-btn wish-btn" aria-label="Wishlist"><svg class="ic"><use href="#i-heart"/></svg></button>
+              <button class="icon-btn" aria-label="Quick view"><svg class="ic"><use href="#i-eye"/></svg></button>
+            </div>
+            <img src="images/cleats.jpg" alt="Jr. Zoom Soccer Cleats">
+            <button class="add-to-cart">Add To Cart</button>
+          </div>
+          <h3 class="card-title">Jr. Zoom Soccer Cleats</h3>
+          <div class="info-row">
+            <p class="price"><span class="price-new">$1160</span></p>
+            <div class="rating">
+              <svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg>
+              <span class="rating-count">(35)</span>
+            </div>
+          </div>
+          <div class="swatches">
+            <span class="swatch active" style="--sw:#D6F326"></span>
+            <span class="swatch" style="--sw:#DB4444"></span>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="card-media">
+            <span class="badge green">NEW</span>
+            <div class="card-actions">
+              <button class="icon-btn wish-btn" aria-label="Wishlist"><svg class="ic"><use href="#i-heart"/></svg></button>
+              <button class="icon-btn" aria-label="Quick view"><svg class="ic"><use href="#i-eye"/></svg></button>
+            </div>
+            <img src="images/gamepad-black.jpg" alt="GP11 Shooter USB Gamepad">
+            <button class="add-to-cart">Add To Cart</button>
+          </div>
+          <h3 class="card-title">GP11 Shooter USB Gamepad</h3>
+          <div class="info-row">
+            <p class="price"><span class="price-new">$660</span></p>
+            <div class="rating">
+              <svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star half"><use href="#i-star"/></svg>
+              <span class="rating-count">(55)</span>
+            </div>
+          </div>
+          <div class="swatches">
+            <span class="swatch active" style="--sw:#000000"></span>
+            <span class="swatch" style="--sw:#DB4444"></span>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="card-media">
+            <div class="card-actions">
+              <button class="icon-btn wish-btn" aria-label="Wishlist"><svg class="ic"><use href="#i-heart"/></svg></button>
+              <button class="icon-btn" aria-label="Quick view"><svg class="ic"><use href="#i-eye"/></svg></button>
+            </div>
+            <img src="images/jacket.jpg" alt="Quilted Satin Jacket">
+            <button class="add-to-cart">Add To Cart</button>
+          </div>
+          <h3 class="card-title">Quilted Satin Jacket</h3>
+          <div class="info-row">
+            <p class="price"><span class="price-new">$660</span></p>
+            <div class="rating">
+              <svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star full"><use href="#i-star"/></svg><svg class="star half"><use href="#i-star"/></svg>
+              <span class="rating-count">(55)</span>
+            </div>
+          </div>
+          <div class="swatches">
+            <span class="swatch active" style="--sw:#184A48"></span>
+            <span class="swatch" style="--sw:#DB4444"></span>
+          </div>
+        </article>
+      </div>
+
+      <div class="center-btn">
+        <a href="products.html" class="btn-red">View All Products</a>
+      </div>
+    </div>
+  </section>
+  <!-- ============ NEW ARRIVAL ============ -->
+  <section class="section new-arrival">
+    <div class="container">
+      <div class="section-label"><span class="label-bar"></span><span>Featured</span></div>
+      <h2 class="section-title">New Arrival</h2>
+
+      <div class="arrival-grid">
+        <article class="arrival-card ps5-card">
+          <img src="images/ps5.jpg" alt="PlayStation 5">
+          <div class="arrival-content">
+            <h3>PlayStation 5</h3>
+            <p>Black and White version of the PS5 coming out on sale.</p>
+            <a href="products.html" class="shop-link">Shop Now</a>
+          </div>
+        </article>
+
+        <article class="arrival-card women-card">
+          <div class="arrival-content">
+            <h3>Women's Collections</h3>
+            <p>Featured woman collections that give you another vibe.</p>
+            <a href="products.html" class="shop-link">Shop Now</a>
+          </div>
+          <img src="images/womens-collection.jpg" alt="Women's Collections">
+        </article>
+
+        <article class="arrival-card speakers-card">
+          <img src="images/speakers-echo.jpg" alt="Speakers">
+          <div class="arrival-content">
+            <h3>Speakers</h3>
+            <p>Amazon wireless speakers</p>
+            <a href="products.html" class="shop-link">Shop Now</a>
+          </div>
+        </article>
+
+        <article class="arrival-card perfume-card">
+          <img src="images/perfume.jpg" alt="Perfume">
+          <div class="arrival-content">
+            <h3>Perfume</h3>
+            <p>GUCCI INTENSE OUD EDP</p>
+            <a href="products.html" class="shop-link">Shop Now</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURES ============ -->
+  <section class="features">
+    <div class="container features-grid">
+      <div class="feature">
+        <div class="feature-icon"><span class="feature-icon-inner"><svg class="ic"><use href="#i-truck"/></svg></span></div>
+        <h3>FREE AND FAST DELIVERY</h3>
+        <p>Free delivery for all orders over $140</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><span class="feature-icon-inner"><svg class="ic"><use href="#i-headset"/></svg></span></div>
+        <h3>24/7 CUSTOMER SERVICE</h3>
+        <p>Friendly 24/7 customer support</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><span class="feature-icon-inner"><svg class="ic"><use href="#i-shield"/></svg></span></div>
+        <h3>MONEY BACK GUARANTEE</h3>
+        <p>We reurn money within 30 days</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col footer-brand">
+        <h3 class="footer-logo">Exclusive</h3>
+        <h4 class="footer-heading">Subscribe</h4>
+        <p class="footer-sub">Get 10% off your first order</p>
+        <form class="subscribe-form" onsubmit="return false;">
+          <input type="email" placeholder="Enter your email">
+          <button type="submit" aria-label="Subscribe"><svg class="ic"><use href="#i-send"/></svg></button>
+        </form>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Support</h4>
+        <address class="footer-address">111 Bijoy saranj, Dhaka,<br>DH 1515, Bangladesh.</address>
+        <p class="footer-link">exclusive@gmail.com</p>
+        <p class="footer-link">+88015-88888-9999</p>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Account</h4>
+        <ul class="footer-list">
+          <li><a href="account.html">My Account</a></li>
+          <li><a href="login.html">Login / Register</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <li><a href="wishlist.html">Wishlist</a></li>
+          <li><a href="products.html">Shop</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Quick Link</h4>
+        <ul class="footer-list">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms Of Use</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-app">
+        <h4 class="footer-heading">Download App</h4>
+        <p class="app-note">Save $3 with App New User Only</p>
+        <div class="app-badges">
+          <img class="qr" src="images/qr-code.png" alt="QR Code">
+          <div class="store-badges">
+            <a href="#"><img src="images/google-play.svg" alt="Get it on Google Play"></a>
+            <a href="#"><img src="images/app-store.svg" alt="Download on the App Store"></a>
+          </div>
+        </div>
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook"><svg class="ic"><use href="#i-facebook"/></svg></a>
+          <a href="#" aria-label="Twitter"><svg class="ic"><use href="#i-twitter"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg class="ic"><use href="#i-instagram"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg class="ic"><use href="#i-linkedin"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© Copyright Rimel 2022. All right reserved</p>
+    </div>
+  </footer>
+
+  <!-- ============ SCROLL TO TOP ============ -->
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top"><svg class="ic"><use href="#i-arrow-up"/></svg></button>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
